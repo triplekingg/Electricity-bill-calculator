@@ -26,7 +26,7 @@ class pHolder extends StatelessWidget {
               alignment: AlignmentDirectional(-1, 0),
               child: Text(
                 instruction,
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               ),
             ),
             Align(

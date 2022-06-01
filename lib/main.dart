@@ -184,7 +184,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              pHolder("Hi")
+              pHolder("ENTER PRICE PER kWh"),
+              pHolder("ENTER DEVICE WATTAGE"),
+              pHolder("ENTER DEVICE VOLTAGE")
             ],
           ),
         ),
