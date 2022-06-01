@@ -1,10 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+void blah() {}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -151,7 +153,36 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
+                child: Container(
+                  width: 200,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(75, 57, 239, 2),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 6,
+                        color: Colors.grey,
+                        offset: Offset(2, 0),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: RaisedButton(
+                    color: Color.fromRGBO(75, 57, 239, 2),
+                    child: Text(
+                      'CALCULATE',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: blah,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
