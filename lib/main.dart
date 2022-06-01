@@ -107,6 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                       borderRadius: BorderRadius.circular(8),
                     ),
+                    child: Text(
+                      'ENTER INFORMATION BELOW',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
