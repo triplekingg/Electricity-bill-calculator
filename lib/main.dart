@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:p1/shadowedTextBox.dart';
-
 import 'inputfield.dart';
+import 'calculateButton.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
       double? totalWatt = wattVal! * hoursVal!;
       result = totalWatt * kwHVal!;
     });
-    print(result);
   }
 
   // void _incrementCounter() {
@@ -170,47 +168,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
-                child: Container(
-                  width: 200,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(75, 57, 239, 2),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 6,
-                        color: Colors.grey,
-                        offset: Offset(2, 0),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: RaisedButton(
-                    color: Color.fromRGBO(75, 57, 239, 2),
-                    child: Text(
-                      'CALCULATE',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: calculate,
-                  ),
-                ),
+                child: CalculateButton("Calculate", calculate),
               ),
             ],
           ),
 
-          CustomField("Enter Watt", wattage),
-          CustomField("Enter Hours", hours),
-          CustomField("Enter Rate", kwh),
-          // TextField(
-          //   controller: hours,
-          //   keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          // ),
-          // TextField(
-          //   controller: wattage,
-          //   keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          // ),
+          CustomField("ENTER DEVICE WATTAGE", wattage),
+          CustomField("ENTER NO. OF HOURS USED", hours),
+          CustomField("ENTER RATE OF KWH", kwh),
+
           // Display the result
           Text(
             result == null

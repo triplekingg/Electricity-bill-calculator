@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class pHolder extends StatelessWidget {
   String instruction;
+  final _textController = TextEditingController();
 
   pHolder(this.instruction);
 
@@ -22,17 +23,19 @@ class pHolder extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(padding: EdgeInsets.all(0)),
             Align(
-              alignment: AlignmentDirectional(-1, 0),
+              alignment: AlignmentDirectional(-0.98, 0),
               child: Text(
                 instruction,
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-1, 0),
+              alignment: AlignmentDirectional(-0.98, 0),
               child: Container(
-                width: 150,
+                padding: EdgeInsets.all(20),
+                width: 160,
                 height: 30,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -50,16 +53,14 @@ class pHolder extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
-                  child: TextFormField(
-                    // controller: textController,
-                    // onChanged: (_) => EasyDebounce.debounce(
-                    //   'textController',
-                    //   Duration(milliseconds: 2000),
-                    //   () => setState(() {}),
-                    // ),
+                  child: TextField(
+                    controller: _textController,
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                     autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(2),
                       isDense: true,
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
@@ -69,6 +70,8 @@ class pHolder extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(4.0),
                           topRight: Radius.circular(4.0),
+                          bottomLeft: Radius.circular(4.0),
+                          bottomRight: Radius.circular(4.0),
                         ),
                       ),
                       focusedBorder: UnderlineInputBorder(
@@ -79,6 +82,8 @@ class pHolder extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(4.0),
                           topRight: Radius.circular(4.0),
+                          bottomLeft: Radius.circular(4.0),
+                          bottomRight: Radius.circular(4.0),
                         ),
                       ),
                     ),
@@ -88,7 +93,6 @@ class pHolder extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                     ),
                     textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
                   ),
                 ),
               ),

@@ -12,38 +12,40 @@ class CustomField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: instruction,
-        contentPadding: EdgeInsets.all(2),
-        isDense: true,
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0x00000000),
-            width: 1,
+    return Container(
+        padding: EdgeInsets.all(5),
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: instruction,
+            contentPadding: EdgeInsets.all(2),
+            isDense: true,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 1,
+              ),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(4.0),
+                topRight: Radius.circular(4.0),
+                bottomLeft: Radius.circular(4.0),
+                bottomRight: Radius.circular(4.0),
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
+                width: 1,
+              ),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(4.0),
+                topRight: Radius.circular(4.0),
+                bottomLeft: Radius.circular(4.0),
+                bottomRight: Radius.circular(4.0),
+              ),
+            ),
           ),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(4.0),
-            topRight: Radius.circular(4.0),
-            bottomLeft: Radius.circular(4.0),
-            bottomRight: Radius.circular(4.0),
-          ),
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0x00000000),
-            width: 1,
-          ),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(4.0),
-            topRight: Radius.circular(4.0),
-            bottomLeft: Radius.circular(4.0),
-            bottomRight: Radius.circular(4.0),
-          ),
-        ),
-      ),
-      controller: val,
-      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-    );
+          controller: val,
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+        ));
   }
 }
