@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:p1/shadowedTextBox.dart';
+
+import 'inputfield.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -44,18 +47,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  double result = 0;
+  // int _counter = 0;
+  final kwh = TextEditingController();
+  final hours = TextEditingController();
+  final wattage = TextEditingController();
 
-  void _incrementCounter() {
+  void calculate() {
+    // textController.text is a string and we have to convert it to double
+    double? kwHVal = double.tryParse(kwh.text);
+    double? hoursVal = double.tryParse(hours.text);
+    double? wattVal = double.tryParse(wattage.text);
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      double? totalWatt = wattVal! * hoursVal!;
+      result = totalWatt * kwHVal!;
     });
+    print(result);
   }
+
+  // void _incrementCounter() {
+  //   setState(() {
+  //     _counter++;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -82,10 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 2,
       ),
       backgroundColor: Color.fromARGB(200, 130, 215, 235),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
+      body: ListView(
+        children: [
+          Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -180,16 +193,32 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: blah,
+                    onPressed: calculate,
                   ),
                 ),
               ),
-              pHolder("ENTER PRICE PER kWh"),
-              pHolder("ENTER DEVICE WATTAGE"),
-              pHolder("ENTER DEVICE VOLTAGE")
             ],
           ),
-        ),
+
+          CustomField("Enter Watt", wattage),
+          CustomField("Enter Hours", hours),
+          CustomField("Enter Rate", kwh),
+          // TextField(
+          //   controller: hours,
+          //   keyboardType: const TextInputType.numberWithOptions(decimal: true),
+          // ),
+          // TextField(
+          //   controller: wattage,
+          //   keyboardType: const TextInputType.numberWithOptions(decimal: true),
+          // ),
+          // Display the result
+          Text(
+            result == null
+                ? 'Please enter a valid number!'
+                : result.toStringAsFixed(2),
+            style: const TextStyle(fontSize: 20),
+          ),
+        ],
       ),
     );
   }
