@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: false,
         elevation: 2,
       ),
-      backgroundColor: Colors.grey,
+      backgroundColor: Color.fromARGB(200, 130, 215, 235),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -95,16 +95,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
                   child: Container(
                     width: double.infinity,
-                    height: 100,
+                    height: 75,
                     constraints: BoxConstraints(
                       maxWidth: double.infinity,
                     ),
                     decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
+                      color: Color.fromRGBO(75, 57, 239, 2),
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
-                          color: Color(0x4D000000),
+                          color: Colors.grey,
                           offset: Offset(0, 2),
                         )
                       ],
@@ -114,10 +114,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       'ENTER INFORMATION BELOW',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontFamily: 'Poppins',
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ),
                 ),
@@ -133,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       maxWidth: double.infinity,
                     ),
                     decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
+                      color: Color.fromARGB(200, 130, 215, 235),
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,

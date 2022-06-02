@@ -14,7 +14,7 @@ class pHolder extends StatelessWidget {
       width: double.infinity,
       height: 60,
       decoration: BoxDecoration(
-        color: Color(0xFFEEEEEE),
+        color: Color.fromARGB(200, 130, 215, 235),
       ),
       child: Align(
         alignment: AlignmentDirectional(0, 0.05),
@@ -35,11 +35,11 @@ class pHolder extends StatelessWidget {
                 width: 150,
                 height: 30,
                 decoration: BoxDecoration(
-                  color: Color(0xD59E9E9E),
+                  color: Colors.white,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
-                      color: Colors.black,
+                      color: Colors.grey,
                       offset: Offset(0, 2),
                     )
                   ],
