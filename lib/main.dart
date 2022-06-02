@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'loadingscreen.dart';
 import 'inputfield.dart';
 import 'custombutton.dart';
+import 'info.dart';
+import 'imageWidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -93,68 +95,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: AlignmentDirectional(-0.05, -0.05),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                  child: Container(
-                    width: double.infinity,
-                    height: 75,
-                    constraints: BoxConstraints(
-                      maxWidth: double.infinity,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(75, 57, 239, 2),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5,
-                          color: Colors.grey,
-                          offset: Offset(0, 2),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      'ENTER INFORMATION BELOW',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
+                  child: Info("ENTER INFORMATION BELOW"),
                 ),
               ),
-              Align(
-                alignment: AlignmentDirectional(-0.05, -0.05),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                  child: Container(
-                    width: 250,
-                    height: 250,
-                    constraints: BoxConstraints(
-                      maxWidth: double.infinity,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(200, 130, 215, 235),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5,
-                          color: Color(0x4D000000),
-                          offset: Offset(0, 2),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Image.asset(
-                        'assets/images/flash-logo.png',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ImgWidget("assets/images/flash-logo.png"),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
                 child: CustomButton(
