@@ -6,11 +6,15 @@ import 'package:p1/main.dart';
 import 'results.dart';
 
 class Loading extends StatefulWidget {
+  double result;
+  Loading(this.result);
   @override
-  State<Loading> createState() => _ResultState();
+  State<Loading> createState() => _ResultState(result);
 }
 
 class _ResultState extends State<Loading> {
+  double res;
+  _ResultState(this.res);
   //This function is to set the duration for the loading screen
   @override
   void initState() {
@@ -19,7 +23,7 @@ class _ResultState extends State<Loading> {
         const Duration(seconds: 3),
         () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Result(22)),
+              MaterialPageRoute(builder: (context) => Result(res)),
             ));
   }
 

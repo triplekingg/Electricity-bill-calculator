@@ -49,12 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
       double? totalWatt = wattVal! * hoursVal!;
       result = totalWatt * kwHVal!;
     });
-  }
-
-  void change() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Loading()),
+      MaterialPageRoute(builder: (context) => Loading(result)),
     );
   }
 
@@ -177,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: EdgeInsets.all(6),
                 child: CustomButton(
-                    "CLEAR", change, Color.fromRGBO(75, 57, 239, 2)),
+                    "CLEAR", clear, Color.fromRGBO(75, 57, 239, 2)),
               )
             ],
           ),
