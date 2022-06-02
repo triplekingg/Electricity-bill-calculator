@@ -5,7 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class CustomField extends StatelessWidget {
+  //Pass textcontroller variable
   final TextEditingController val;
+  //pass instruction variable
   final String instruction;
 
   const CustomField(this.instruction, this.val);
@@ -13,11 +15,14 @@ class CustomField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(5),
+        width: 250,
+        padding: EdgeInsets.all(6),
         child: TextField(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
             hintText: instruction,
-            contentPadding: EdgeInsets.all(2),
+            contentPadding: EdgeInsets.all(4),
             isDense: true,
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
@@ -44,6 +49,7 @@ class CustomField extends StatelessWidget {
               ),
             ),
           ),
+          autofocus: false,
           controller: val,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ));

@@ -170,19 +170,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
                 child: CalculateButton("Calculate", calculate),
               ),
+              CustomField("ENTER DEVICE WATTAGE", wattage),
+              CustomField("ENTER NO. OF HOURS USED", hours),
+              CustomField("ENTER RATE OF KWH", kwh),
+              // Display the result
+              Text(
+                result == null
+                    ? 'Please enter a valid number!'
+                    : result.toStringAsFixed(2),
+                style: const TextStyle(fontSize: 20),
+              )
             ],
-          ),
-
-          CustomField("ENTER DEVICE WATTAGE", wattage),
-          CustomField("ENTER NO. OF HOURS USED", hours),
-          CustomField("ENTER RATE OF KWH", kwh),
-
-          // Display the result
-          Text(
-            result == null
-                ? 'Please enter a valid number!'
-                : result.toStringAsFixed(2),
-            style: const TextStyle(fontSize: 20),
           ),
         ],
       ),
