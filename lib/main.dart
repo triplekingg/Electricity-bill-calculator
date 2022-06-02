@@ -160,7 +160,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
-                child: CustomButton("CALCULATE", calculate),
+                child: CustomButton(
+                    "CALCULATE", calculate, Color.fromRGBO(75, 57, 239, 2)),
               ),
 
               CustomField("ENTER DEVICE WATTAGE", wattage),
@@ -175,7 +176,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsets.all(6),
-                child: CustomButton("CLEAR", change),
+                child: CustomButton(
+                    "CLEAR", change, Color.fromRGBO(75, 57, 239, 2)),
               )
             ],
           ),

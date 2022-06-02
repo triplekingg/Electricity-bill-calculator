@@ -1,4 +1,4 @@
-// ignore_for_file: sort_child_properties_last, prefer_const_constructors, duplicate_ignore
+// ignore_for_file: sort_child_properties_last, prefer_const_constructors, duplicate_ignore, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
@@ -7,8 +7,9 @@ class CustomButton extends StatelessWidget {
   String ButtonText;
   //Pass function as argument
   VoidCallback actions;
+  Color c;
 
-  CustomButton(this.ButtonText, this.actions);
+  CustomButton(this.ButtonText, this.actions, this.c);
 
   @override
   Widget build(BuildContext context) {
