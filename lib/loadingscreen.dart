@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:p1/main.dart';
+import 'results.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -18,10 +19,7 @@ class _ResultState extends State<Loading> {
         const Duration(seconds: 3),
         () => Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => MyHomePage(
-                        title: 'Blah',
-                      )),
+              MaterialPageRoute(builder: (context) => Result(22)),
             ));
   }
 
