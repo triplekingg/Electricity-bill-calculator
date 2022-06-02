@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:p1/resultscreen.dart';
+import 'loadingscreen.dart';
 import 'inputfield.dart';
 import 'custombutton.dart';
 
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void change() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const Result()),
+      MaterialPageRoute(builder: (context) => Loading()),
     );
   }
 
