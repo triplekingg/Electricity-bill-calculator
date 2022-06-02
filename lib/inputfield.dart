@@ -49,7 +49,6 @@ class CustomField extends StatelessWidget {
               ),
             ),
           ),
-          autofocus: false,
           controller: val,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ));

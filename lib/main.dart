@@ -1,14 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:p1/resultscreen.dart';
 import 'inputfield.dart';
-import 'calculateButton.dart';
+import 'custombutton.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-void blah() {}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,15 +29,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -47,13 +37,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double result = 0;
-  // int _counter = 0;
   final kwh = TextEditingController();
   final hours = TextEditingController();
   final wattage = TextEditingController();
 
   void calculate() {
-    // textController.text is a string and we have to convert it to double
     double? kwHVal = double.tryParse(kwh.text);
     double? hoursVal = double.tryParse(hours.text);
     double? wattVal = double.tryParse(wattage.text);
@@ -63,20 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+  void change() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Result()),
+    );
+  }
+
+  void clear() {
+    setState(() {
+      result = 0;
+    });
+    kwh.clear();
+    hours.clear();
+    wattage.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(75, 57, 239, 2),
@@ -168,8 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
-                child: CalculateButton("Calculate", calculate),
+                child: CustomButton("CALCULATE", calculate),
               ),
+
               CustomField("ENTER DEVICE WATTAGE", wattage),
               CustomField("ENTER NO. OF HOURS USED", hours),
               CustomField("ENTER RATE OF KWH", kwh),
@@ -179,6 +172,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ? 'Please enter a valid number!'
                     : result.toStringAsFixed(2),
                 style: const TextStyle(fontSize: 20),
+              ),
+              Padding(
+                padding: EdgeInsets.all(6),
+                child: CustomButton("CLEAR", change),
               )
             ],
           ),

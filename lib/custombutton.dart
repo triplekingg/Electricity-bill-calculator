@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-class CalculateButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   //Pass text as argument
   String ButtonText;
   //Pass function as argument
   VoidCallback actions;
 
-  CalculateButton(this.ButtonText, this.actions);
+  CustomButton(this.ButtonText, this.actions);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CalculateButton extends StatelessWidget {
                   side: BorderSide(color: Color.fromRGBO(75, 57, 239, 2))))),
       // ignore: prefer_const_constructors
       child: Text(
-        'CALCULATE',
+        ButtonText,
         style:
             TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 24),
       ),
